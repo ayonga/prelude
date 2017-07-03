@@ -131,5 +131,6 @@
         (yaml-mode . "melpa-stable")
         (yasnippet . "melpa-stable")
         (zenburn-theme . "melpa-stable")
+	(apropospriate-theme . "melpa-stable")
         (zop-to-char . "melpa-stable")
         ))
