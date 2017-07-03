@@ -31,7 +31,7 @@
 ;; Boston, MA 02110-1301, USA.
 
 ;;; Code:
-(prelude-require-packages '(flx-ido ido-ubiquitous smex))
+(prelude-require-packages '(flx-ido ido-ubiquitous smex ido-vertical-mode))
 
 (require 'ido)
 (require 'ido-ubiquitous)
@@ -52,6 +52,14 @@
 (flx-ido-mode +1)
 ;; disable ido faces to see flx highlights
 (setq ido-use-faces nil)
+
+;; flx-ido looks better with ido-vertical-mode
+(ido-vertical-mode +1)
+;; C-n/p is more intuitive in vertical layout
+(setq ido-vertical-define-keys 'C-n-C-p-up-down-left-right)
+(setq ido-virtual-buffers '())
+(setq recentf-list '())
+(setq ido-ignore-buffers '("\\` " "^\*"))
 
 ;;; smex, remember recently and most frequently used commands
 (require 'smex)
