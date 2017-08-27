@@ -1,0 +1,3 @@
+[submodule "vendor/matlab-emacs-src"]
+	path = vendor/matlab-emacs-src
+	url = https://git.code.sf.net/p/matlab-emacs/src

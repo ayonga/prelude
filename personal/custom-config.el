@@ -3,13 +3,20 @@
  '(
    apropospriate-theme
    color-theme-modern
+   wolfram
    )
  )
 
+
+;;(global-set-key [?\C-c ?l] 'layout-save-current)
+;;(global-set-key [?\C-c ?\C-l ?\C-l] 'layout-restore)
+;;(global-set-key [?\C-c ?\C-l ?\C-c] 'layout-delete-current)
+
+(setq wolfram-alpha-app-id 'ULKG8W-V7G55YHRQ8)
 ;; appearance
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-(menu-bar-mode -1)
+(menu-bar-mode 1)
 (setq-default cursor-type 'bar)
 
 ;; marking text
@@ -25,6 +32,8 @@
 
 ;; indention
 (setq tab-width 4)
+(setq-default fill-column 80)
+
 
 (setq echo-keystrokes 0.1
       use-dialog-box nil
@@ -65,4 +74,7 @@
 (define-key yas-minor-mode-map (kbd "C-<tab>") 'yas-expand)
 (setq company-yasnippet nil);; must
 
-
+(defvar prelude-matlab-dir (expand-file-name "vendor/matlab-emacs-src" prelude-dir)
+  "The home of Prelude's core functionality.")
+(add-to-list 'load-path prelude-matlab-dir)
+(require 'matlab-load)
