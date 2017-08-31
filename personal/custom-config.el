@@ -65,6 +65,9 @@
 
 (put 'upcase-region 'disabled nil)
 
+
+
+
 ;; yasnippet
 (prelude-require-package 'yasnippet)
 (defvar prelude-personal-snippet-dir (expand-file-name "snippets" prelude-personal-dir)
