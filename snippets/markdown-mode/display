@@ -1,0 +1,4 @@
+#name : display
+#contributor: Ayonga Hereid <ayonga27@gmail.com> 
+# --
+\\\[ $1 \\\] $0

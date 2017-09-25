@@ -1,0 +1,4 @@
+#name : callout
+#contributor: Ayonga Hereid <ayonga27@gmail.com>
+# --
+{% include callout.html content="${1:content}" type="${2:type}"%}

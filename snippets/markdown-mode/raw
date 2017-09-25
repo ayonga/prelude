@@ -1,0 +1,6 @@
+#name : raw
+#contributor: Ayonga Hereid <ayonga27@gmail.com>
+# --
+{% raw %}
+$1
+{% endraw %}

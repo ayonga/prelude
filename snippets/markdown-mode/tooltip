@@ -1,0 +1,4 @@
+#name : tooltip
+#contributor: Ayonga Hereid <ayonga27@gmail.com>
+# --
+<a href="#" data-toggle="tooltip" data-original-title="{{site.data.glossary.${1:term}}}">Jekyll</a>

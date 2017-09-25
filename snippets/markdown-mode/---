@@ -1,0 +1,9 @@
+#name : YAML Front Matter
+#contributor: Ayonga Hereid <ayonga27@gmail.com>
+# --
+---
+title: ${1:title}
+tags: ${2:tag}
+keywords: ${3:keyword}
+---
+$0

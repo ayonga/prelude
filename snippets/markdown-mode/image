@@ -1,0 +1,4 @@
+#name : image
+#contributor: Ayonga Hereid <ayonga27@gmail.com>
+# --
+{% include image.html file="${1:file}" url="${2:url}" alt="${3:alt}" caption="${4:caption}" max-width="${5:width}" %}

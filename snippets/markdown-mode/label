@@ -1,0 +1,4 @@
+#name : label
+#contributor: Ayonga Hereid <ayonga27@gmail.com>
+# --
+<span class="label label-${1:type}">${2:text}</span>
