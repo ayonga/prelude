@@ -116,13 +116,18 @@
 	LaTeX-section-toc
 	LaTeX-section-section
 	LaTeX-section-label))
-(setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
-(setq reftex-default-bibliography '("/home/ayonga/Papers/bibliography/ayonga.bib"
-				    "/home/ayonga/Papers/bibliography/hzd.bib"
-				    "/home/ayonga/Papers/bibliography/optimization.bib"
-				    "/home/ayonga/Papers/bibliography/control.bib"
-				    "/home/ayonga/Papers/bibliography/robotics.bib"))
-	
+(setq reftex-default-bibliography '("/home/ayonga/Dropbox/Paper/bibliography/zotero.bib"))
+
+(setq bibtex-completion-bibliography '("/home/ayonga/Dropbox/Paper/bibliography/zotero.bib"))
+(setq helm-bibtex-bibliography '("/home/ayonga/Dropbox/Paper/bibliography/zotero.bib"))
+;(add-hook 'TeX-mode-hook
+;          (lambda() (define-key TeX-mode-map "\C-ch" 'helm-bibtex)) )
+(setq bibtex-completion-library-path '("/home/ayonga/Papers/bibliography/pdf/"))
+(setq bibtex-completion-pdf-field "File")
+(setq bibtex-completion-pdf-open-function
+      (lambda (fpath)
+        (call-process "evince" nil 0 nil fpath)))
+
 (setq reftex-label-alist '(AMSTeX))
 (setq reftex-label-alist '((nil ?f nil "~\\figref{%s}" nil nil)))
 (setq reftex-label-alist '((nil ?t nil "~\\tabref{%s}" nil nil)))
@@ -167,39 +172,40 @@
                     (TeX-process-set-variable file 'TeX-command-next TeX-command-default))
                   nil t :help "Create Glossary")))
 ;; Change this to the place where you store all the electronic versions.
-(defvar bibtex-papers-directory "/home/ayonga/Papers/bibliography/pdf/")
+;;(defvar bibtex-papers-directory "/home/ayonga/Papers/bibliography/pdf/")
+
 
 ;; Translates a BibTeX key into the base filename of the corresponding
 ;; file. Change to suit your conventions.
 ;; Mine is:
 ;; - author1-author2-author3.conferenceYYYY for the key
 ;; - author1-author2-author3_conferenceYYYY.{ps,pdf} for the file
-(defun bibtex-key->base-filename (key)
-  (concat bibtex-papers-directory
-          (replace-regexp-in-string "\\." "_" key)))
+;; (defun bibtex-key->base-filename (key)
+;;   (concat bibtex-papers-directory
+;;           (replace-regexp-in-string "\\." "_" key)))
 
-;; Finds the BibTeX key the point is on.
-;; You might want to change the regexp if you use other strange characters in the keys.
-(defun bibtex-key-at-point ()
-  (let ((chars-in-key "A-Z-a-z0-9_:-\\."))
-    (save-excursion
-      (buffer-substring-no-properties
-       (progn (skip-chars-backward chars-in-key) (point))
-       (progn (skip-chars-forward chars-in-key) (point))))))
+;; ;; Finds the BibTeX key the point is on.
+;; ;; You might want to change the regexp if you use other strange characters in the keys.
+;; (defun bibtex-key-at-point ()
+;;   (let ((chars-in-key "A-Z-a-z0-9_:-\\."))
+;;     (save-excursion
+;;       (buffer-substring-no-properties
+;;        (progn (skip-chars-backward chars-in-key) (point))
+;;        (progn (skip-chars-forward chars-in-key) (point))))))
 
-;; Opens the appropriate viewer on the electronic version of the paper referenced at point.
-;; Again, customize to suit your preferences.
-(defun browse-paper-at-point ()
-  (interactive)
-  (let ((base (bibtex-key->base-filename (bibtex-key-at-point))))
-    (cond
-     ((file-exists-p (concat base ".pdf"))
-      (shell-command (concat "evince " base ".pdf &")))
-     ((file-exists-p (concat base ".ps"))
-      (shell-command (concat "gv " base ".ps &")))
-     (t (message (concat "No electronic version available: " base ".{pdf,ps}"))))))
+;; ;; Opens the appropriate viewer on the electronic version of the paper referenced at point.
+;; ;; Again, customize to suit your preferences.
+;; (defun browse-paper-at-point ()
+;;   (interactive)
+;;   (let ((base (bibtex-key->base-filename (bibtex-key-at-point))))
+;;     (cond
+;;      ((file-exists-p (concat base ".pdf"))
+;;       (shell-command (concat "evince " base ".pdf &")))
+;;      ((file-exists-p (concat base ".ps"))
+;;       (shell-command (concat "gv " base ".ps &")))
+;;      (t (message (concat "No electronic version available: " base ".{pdf,ps}"))))))
 
-(global-set-key [S-f6] 'browse-paper-at-point)
+;; (global-set-key [S-f6] 'browse-paper-at-point)
 
 ;;Automatically insert non-breaking space before citation
 (setq reftex-format-cite-function
