@@ -88,7 +88,8 @@
     volatile-highlights
     which-key
     zenburn-theme
-    zop-to-char)
+    zop-to-char
+    helm-bibtex)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
