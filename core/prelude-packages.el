@@ -1,4 +1,4 @@
-;;; prelude-packages.el --- Emacs Prelude: default package selection.
+﻿;;; prelude-packages.el --- Emacs Prelude: default package selection.
 ;;
 ;; Copyright © 2011-2017 Bozhidar Batsov
 ;;
@@ -192,6 +192,7 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
 
 ;; markdown-mode doesn't have autoloads for the auto-mode-alist
 ;; so we add them manually if it's already installed
+(add-to-list 'load-path "C:\\.emacs.d\\markdown-mode\\")
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 (when (package-installed-p 'markdown-mode)

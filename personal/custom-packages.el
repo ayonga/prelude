@@ -1,3 +1,3 @@
 ;; custom theme config
-(prelude-require-packages '(solarized-theme apropospriate-theme color-theme-modern markdown-mode))
+(prelude-require-packages '(solarized-theme apropospriate-theme color-theme-modern))
 
